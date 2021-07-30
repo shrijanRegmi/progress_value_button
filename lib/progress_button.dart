@@ -2,16 +2,95 @@ library progress_button;
 
 import 'package:flutter/material.dart';
 
+/// Creates a progress button with the supplied value in percentage.
+///
+/// The [value] and [onPressed] parameters should not be null.
+///
+/// Example:
+/// ```dart
+/// ProgressButton(
+///   value: 90.0,
+///   height: 65.0,
+///   onPressed: (progress) {},
+///   margin: const EdgeInsets.all(10.0),
+///   child: Text(
+///     "Uploading...",
+///     style: TextStyle(
+///     fontWeight: FontWeight.bold,
+///     color: Colors.white,
+///     fontSize: 18.0,
+///   ),
+/// ),
+/// ```
 class ProgressButton extends StatefulWidget {
+  /// The percentage value of the progress indicator.
+  ///
+  /// The [value] parameter should not be null.
   final double value;
+
+  /// The background color of the progress button.
+  ///
+  /// If null the [backgroundColor] defaults to Color(0xffd6d6d6).
   final Color backgroundColor;
+
+  /// The color of the progress indicator.
+  ///
+  /// If null the [progressColor] defaults to Colors.green.
   final Color progressColor;
+
+  /// The function that will be called when user taps on the button.
+  ///
+  /// The [onPressed] parameter must not be null.
+  ///
+  /// The [onPressed] function is called with the progress in percentage.
   final Function(double) onPressed;
+
+  /// The active state of the button.
+  ///
+  /// When set to false, the progress of the button won't change.
+  ///
+  /// If null the [active] parameter defaults to true.
+  final bool? active;
+
+  /// The animationDuration of the progress animation
+  ///
+  /// If null the [animationDuration] parameter defaults to 2000 milliseconds
+  final Duration? animationDuration;
+
+  /// The curve of the progress animation
+  ///
+  /// If null the [animationCurve] parameter defaults to Curves.easeOutSine
+  final Curve animationCurve;
+
+  /// The border radius of the button.
+  ///
+  /// If null the [borderRadius] parameter defaults to 4.0.
   final double? borderRadius;
+
+  /// The widget that is displayed in the center of the progress button.
+  /// It is usually a text widget.
+  ///
+  /// If null the progress button won't contain anything.
   final Widget? child;
+
+  /// The width of the progress button.
+  ///
+  /// If null the [width] parameter defaults to width of the screen.
   final double? width;
+
+  /// The height of the progress button.
+  ///
+  /// If null the [height] parameter defaults to 50.0.
   final double? height;
+
+  /// The margin around the progress button.
+  ///
+  /// If null the [margin] parameter defaults to no margin.
   final EdgeInsetsGeometry? margin;
+
+  /// The function that will be called everytime the progress of the button changes.
+  ///
+  /// The [onValueChange] function is called with the progress in percentage.
   final Function(double)? onValueChange;
 
   const ProgressButton({
@@ -26,6 +105,9 @@ class ProgressButton extends StatefulWidget {
     this.margin,
     this.onValueChange,
     this.borderRadius = 4.0,
+    this.active = true,
+    this.animationDuration = const Duration(milliseconds: 2000),
+    this.animationCurve = Curves.easeOutSine,
   }) : super(key: key);
 
   @override
@@ -43,12 +125,12 @@ class _ProgressButtonState extends State<ProgressButton>
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 2000),
+      duration: widget.animationDuration,
     );
     _tween = Tween<double>(begin: 0.0, end: widget.value);
     _animation = _tween.animate(CurvedAnimation(
       parent: _animationController,
-      curve: Curves.easeOutSine,
+      curve: widget.animationCurve,
     ));
     _animationController.forward();
   }
