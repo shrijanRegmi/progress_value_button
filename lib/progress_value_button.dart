@@ -1,4 +1,4 @@
-library progress_button;
+library progress_value_button;
 
 import 'package:flutter/material.dart';
 
@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 ///
 /// Example:
 /// ```dart
-/// ProgressButton(
+/// ProgressValueButton(
 ///   value: 90.0,
 ///   height: 65.0,
 ///   onPressed: (progress) {},
@@ -22,7 +22,7 @@ import 'package:flutter/material.dart';
 ///   ),
 /// ),
 /// ```
-class ProgressButton extends StatefulWidget {
+class ProgressValueButton extends StatefulWidget {
   /// The percentage value of the progress indicator.
   ///
   /// The [value] parameter should not be null.
@@ -93,7 +93,7 @@ class ProgressButton extends StatefulWidget {
   /// The [onValueChange] function is called with the progress in percentage.
   final Function(double)? onValueChange;
 
-  const ProgressButton({
+  const ProgressValueButton({
     Key? key,
     required this.value,
     required this.onPressed,
@@ -111,10 +111,10 @@ class ProgressButton extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _ProgressButtonState createState() => _ProgressButtonState();
+  _ProgressValueButtonState createState() => _ProgressValueButtonState();
 }
 
-class _ProgressButtonState extends State<ProgressButton>
+class _ProgressValueButtonState extends State<ProgressValueButton>
     with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   late Animation<double> _animation;
@@ -136,7 +136,7 @@ class _ProgressButtonState extends State<ProgressButton>
   }
 
   @override
-  void didUpdateWidget(covariant ProgressButton oldWidget) {
+  void didUpdateWidget(covariant ProgressValueButton oldWidget) {
     _changeVal();
     super.didUpdateWidget(oldWidget);
   }

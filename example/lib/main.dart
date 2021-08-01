@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:progress_button/progress_button.dart';
+import 'package:progress_value_button/progress_value_button.dart';
 
 void main() {
-  runApp(ProgressButtonApp());
+  runApp(ProgressValueButtonApp());
 }
 
-class ProgressButtonApp extends StatelessWidget {
-  const ProgressButtonApp({Key? key}) : super(key: key);
+class ProgressValueButtonApp extends StatelessWidget {
+  const ProgressValueButtonApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: Center(
         child: _loaded
-            ? ProgressButton(
+            ? ProgressValueButton(
                 value: 100.0,
                 animationDuration: Duration(milliseconds: 8000),
                 height: 65.0,

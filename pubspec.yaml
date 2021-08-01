@@ -1,8 +1,8 @@
-name: progress_button
+name: progress_value_button
 description: A Flutter package that creates a progress button with smooth animation with the supplied value in percentage.
-version: 0.0.2
-homepage: https://github.com/shrijanRegmi/progress_button
-repository: https://github.com/shrijanRegmi/progress_button
+version: 0.0.1
+homepage: https://github.com/shrijanRegmi/progress_value_button
+repository: https://github.com/shrijanRegmi/progress_value_button
 
 environment:
   sdk: ">=2.12.0 <3.0.0"

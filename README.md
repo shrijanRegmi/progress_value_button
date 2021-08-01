@@ -1,4 +1,4 @@
-# progress_button
+# progress_value_button
 
 Creates a progress button with smooth animation with the supplied value in percentage.
 
@@ -6,7 +6,7 @@ Creates a progress button with smooth animation with the supplied value in perce
 
 ### Basic Example:
 ```dart
-ProgressButton(
+ProgressValueButton(
   value: 100.0,
   height: 65.0,
   onPressed: (progress) {},
