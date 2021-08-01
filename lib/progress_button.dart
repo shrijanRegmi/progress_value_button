@@ -52,12 +52,12 @@ class ProgressButton extends StatefulWidget {
   /// If null the [active] parameter defaults to true.
   final bool? active;
 
-  /// The animationDuration of the progress animation
+  /// The animation duration of the progress animation.
   ///
   /// If null the [animationDuration] parameter defaults to 2000 milliseconds
   final Duration? animationDuration;
 
-  /// The curve of the progress animation
+  /// The curve of the progress animation.
   ///
   /// If null the [animationCurve] parameter defaults to Curves.easeOutSine
   final Curve animationCurve;
